@@ -1,0 +1,11 @@
+<title>MUJANG STUDIOS DEVELOPER WEBSITE</title>
+<center><h2>LOGIN</h2><p><input type='username' id='uname'></input></p><p><input type='password' id='pswd'></input><button onclick='submit()'>LOG IN</button></p><hr><p>(C) 2022 Mujang Game Development</p></center>
+<script>
+	var a = null;
+	var b = null;
+	function submit() {
+		a = document.getElementById('uname').value;
+		b = document.getElementById('pswd').value;
+		document.location.href = './AUTH.HTML?un=' + a + '&pswd=' + b;
+	}
+</script>

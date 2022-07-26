@@ -1,0 +1,98 @@
+<title id='pgtitle'>MUJANG STUDIOS DEVELOPER HOME PAGE</title>
+<style>
+	.topbar {
+		background-color: blue;
+		background: url('./bookshelf.bmp');
+		background-repeat: repeat;
+		width: 100%;
+		height: 100px;
+		top: 0px;
+		color: white;
+	}
+	body {
+		font-family: Arial;
+	}
+	.invisible {
+		display: none;
+	}
+	.visible {
+		display: block;
+	}
+</style>
+<div class='topbar'><h2>Welcome to the Mujang Studios Developer Website</h2><h3>Hello, <text id='un'>USER NAME HERE</text>!</h3></div>
+<div class='devstuff' id='admin_cp'><a href='./DEVHOMEPAGE.HTML?user=QA__ADMIN&changelog=true'>HouseCraft Changelog</a>|<a href='./DOWNLOAD/AUTH.HTML?un=nullpointer&pswd=future'>Download Most Recent Version</a>|<a href='./INDEX.HTML'>Sign Out</a>|<a href='./AUTH_GEN.HTML?un=nullpointer&pswd=future'>Generate Key</a></div>
+<div class='devstuff' id='normal_cp'><a href='./DEVHOMEPAGE.HTML?user=ASIGN_Guest&changelog=true'>Changelog</a>|<a href='./DOWNLOAD2.HTML?reg=ASIGN_Guest'>Download Most Recent Version</a>|<a href='./INDEX.HTML'>Sign In</a></div>
+<!-- DO NOT MOVE THE CHANGELOG OUT OF THE START OF THE PAGE -->
+<div style='display: none' id='chl'>
+	<h2>Added Open To Lan (sort of)</h2>
+	<p>The release of Open to LAN is very important to us, we need YOU to beta test it!</p>
+	<p>You can download that version from the "Download Most Recent Version" button.</p>
+	<p>Enjoy the new feature!</p>
+	<p>            -NullPointer</p>
+</div>
+<div style='display: none' id='chl_a'>
+	<h1>This is the most recent (NON-ADMIN) post:</h1>
+	<h2>Added Open To Lan (sort of)</h2>
+	<p>The release of Open to LAN is very important to us, we need YOU to beta test it!</p>
+	<p>You can download that version from the "Download Most Recent Version" button.</p>
+	<p>Enjoy the new feature!</p>
+	<p>            -NullPointer</p>
+	<h1>This is the full post:</h1>
+	<h2>Added Open To Lan (sort of)</h2>
+	<p>The release of Open to LAN is very important to us, we need all guests to beta test it!</p>
+	<p>You can download that version from the <a href='DOWNLOAD2.HTML?user=ASIGN_administrators'>DOWNLOAD2</a> page.</p>
+	<h2>Added Black and White</h2>
+	<p>There were too many colors.</p>
+	<h2>Added "window"</h2>
+	<p>This block is top priority!</p>
+	<p>The intended feature of this block is for it to be basically a mirror.</p>
+	<p>I thought it would be cool, but it's not working!</p>
+	<p>I need all of you to figure this out ASAP!</p>
+	<p>With best intentions, NullPointer :)</p>
+</div>
+<!-- DO NOT MOVE THE SCRIPT OUT OF THE END OF THE PAGE -->
+<script>
+	const authcode = new URLSearchParams(window.location.search);
+	const reg = authcode.get('user');
+	var title = document.getElementById('pgtitle');
+	title.innerText = 'MUJANG STUDIOS DEVELOPER HOME PAGE';
+	var unbox1 = document.getElementById('un');
+	var adminstuff = document.getElementById('admin_cp');
+	var normalstuff = document.getElementById('normal_cp');
+	var changelog_adminless = document.getElementById('chl');
+	var changelog_admin = document.getElementById('chl_a');
+	if (authcode.has('changelog')) {
+		if (authcode.get('changelog') == 'true') {
+			if (reg == "QA__ADMIN") {
+				changelog_admin.style = 'display: block';
+			}
+			else if (reg == "ASIGN_qa") {
+				changelog_admin.style = 'display: block';
+			}
+			else {
+				changelog_adminless.style = 'display: block';
+			}
+		}
+	}
+	if (reg == "QA__ADMIN") {
+		title.innerText = 'Welcome back, NullPointer!';
+		unbox1.innerHTML = 'nullpointer';
+		normalstuff.style = 'display: none';
+	}
+	else if (reg == "ASIGN_qa") {
+		title.innerText = 'Hello beta tester!';
+		unbox1.innerHTML = reg.split('ASIGN_')[1];
+		normalstuff.style = 'display: none';
+	}
+	else if (reg == "ASIGN_naumystery") {
+		title.innerText = 'Oh... How are you back?';
+		console.log('NAUMystery is not a valid MJS account!');
+		unbox1.innerHTML = reg.split('ASIGN_')[1];
+		adminstuff.style = 'display: none';
+	}
+	else {
+		title.innerHTML = 'Welcome, ' + reg.split('ASIGN_')[1];
+		unbox1.innerHTML = reg.split('ASIGN_')[1];
+		adminstuff.style = 'display: none';
+	}
+</script>

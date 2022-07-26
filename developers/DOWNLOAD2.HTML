@@ -1,0 +1,47 @@
+<title id='pgtitle'>MUJANG STUDIOS DEVELOPER HOME PAGE</title>
+<style>
+	.topbar {
+		background-color: blue;
+		background: url('./bookshelf.bmp');
+		background-repeat: repeat;
+		width: 100%;
+		height: 100px;
+		top: 0px;
+		color: white;
+	}
+	body {
+		font-family: Arial;
+	}
+	.invisible {
+		display: none;
+	}
+	.visible {
+		display: block;
+	}
+</style>
+<div class='topbar'><h2>Downloads</h2><h3>Hello, <text id='un'>USER NAME HERE</text>!</h3></div>
+<a href='game_devpreview.zip'>Download</a>
+<!-- DO NOT MOVE THE SCRIPT OUT OF THE END OF THE PAGE -->
+<script>
+	const authcode = new URLSearchParams(window.location.search);
+	const reg = authcode.get('user');
+	var title = document.getElementById('pgtitle');
+	title.innerText = 'MUJANG STUDIOS DEVELOPER HOME PAGE';
+	var unbox1 = document.getElementById('un');
+	var adminstuff = document.getElementById('admin_cp');
+	var normalstuff = document.getElementById('normal_cp');
+	if (reg == "QA__ADMIN") {
+		document.location.href = './DOWNLOAD/INDEX.HTML';
+	}
+	else if (reg == "ASIGN_qa") {
+		document.location.href = './DOWNLOAD/INDEX.HTML';
+	}
+	else if (reg == "ASIGN_naumystery") {
+		document.location.href = './DOWNLOAD/INDEX.HTML';
+	}
+	else {
+		title.innerHTML = 'Welcome, ' + reg.split('ASIGN_')[1];
+		unbox1.innerHTML = reg.split('ASIGN_')[1];
+		adminstuff.style = 'display: none';
+	}
+</script>

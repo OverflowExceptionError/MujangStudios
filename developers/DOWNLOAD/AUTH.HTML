@@ -1,0 +1,26 @@
+<title>Authorising...</title>
+<script>
+	const authcode = new URLSearchParams(window.location.search);
+	const username = authcode.get('un');
+	const password = authcode.get('pswd');
+	if (username == "naumystery") {
+		if (password == "mujangspec") {
+			console.log('WARNING: This is an archived account. You cannot make changes!');
+			document.location.href = './DEVHOMEPAGE.HTML?user=ASIGN_naumystery';
+		}
+		else {
+			document.location.href = './INDEX.HTML';
+		}
+	}
+	else if (username == "nullpointer") {
+		if (password == "future") {
+			document.location.href = './DEVHOMEPAGE.HTML?user=QA__ADMIN';
+		}
+		else {
+			document.location.href = './INDEX.HTML';
+		}
+	}
+	else {
+		document.location.href = './DEVHOMEPAGE.HTML?user=ASIGN_' + username;
+	}
+</script>

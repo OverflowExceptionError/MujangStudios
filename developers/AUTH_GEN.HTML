@@ -1,0 +1,22 @@
+<title>Authorising...</title>
+<script>
+	const authcode = new URLSearchParams(window.location.search);
+	const username = authcode.get('un');
+	const password = authcode.get('pswd');
+	if (username == "naumystery") {
+		if (password == "mujangspec") {
+			alert('mujangspec');
+			document.location.href = './DEVHOMEPAGE.HTML?user=ASIGN_naumystery';
+		}
+	}
+	else if (username == "nullpointer") {
+		if (password == "future") {
+			alert('donovan');
+			document.location.href = './DEVHOMEPAGE.HTML?user=QA__ADMIN';
+		}
+	}
+	else {
+		alert('Error: This is not a valid administrative account!');
+		document.location.href = './DEVHOMEPAGE.HTML?user=ASIGN_' + username;
+	}
+</script>
